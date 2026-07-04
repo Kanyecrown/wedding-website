@@ -26,7 +26,7 @@ export default function Hero() {
         {/* BACKGROUND LAYER: The Love Letter (Francis to Faith) */}
         <motion.div 
           style={{ scale: letterScale }}
-          className="w-full max-w-4xl bg-ivory border border-gold/20 p-8 md:p-16 shadow-2xl relative z-10 mx-auto"
+          className="w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-ivory border border-gold/20 p-6 sm:p-8 md:p-12 lg:p-16 shadow-2xl relative z-10 mx-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
           {/* Subtle line layout watermark */}
           <div className="absolute inset-y-0 left-12 md:left-24 w-px bg-gold/10 pointer-events-none" />
