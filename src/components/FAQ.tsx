@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FAQS = [
   { q: "Is there parking available?", a: "Yes, safe and secure parking is available on-site at the Akamo Hotel for all wedding guests." },
-  { q: "Are children allowed?", a: "While we love your little ones, our wedding will be an adults-only celebration to allow all guests to relax and enjoy the evening." },
   { q: "What is the exact dress code?", a: "The dress code is strictly Formal or Traditional elegant wear. We kindly ask our guests to observe the colors of the day if possible." },
   { q: "When should I arrive?", a: "Please arrive at 11:30 AM to find your seats and settle in before the Solemnization begins promptly at 12:00 PM." },
   { q: "Will the reception be at the same location?", a: "Yes, the reception will take place immediately after the ceremony at the exact same venue (Akamo Hotel) for your convenience." }
