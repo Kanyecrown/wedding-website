@@ -5,9 +5,9 @@ export default function Gifts() {
   const [copied, setCopied] = useState(false);
   // EDIT HERE: Put real bank credentials in these values
   const bankDetails = {
-    accountNumber: "XXXXXXXXXX", 
-    bankName: "[ INSERT BANK NAME ]",
-    accountName: "[ INSERT ACCOUNT NAME ]"
+    accountNumber: "7031267324", 
+    bankName: "Opay",
+    accountName: "Adekanye Francis Adebola"
   };
 
   const handleCopy = () => {
