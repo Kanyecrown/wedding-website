@@ -1,6 +1,9 @@
 import Hero from "@/components/Hero";
+import CountdownSection from "@/components/CountdownSection";
 import OurStory from "@/components/OurStory";
 import EventDetails from "@/components/EventDetails";
+import Itinerary from "@/components/Itinerary";
+import FAQ from "@/components/FAQ";
 import DressCode from "@/components/DressCode";
 import Gallery from "@/components/Gallery";
 import RSVPForm from "@/components/RSVPForm";
@@ -11,8 +14,11 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero />
+      <CountdownSection />
       <OurStory />
       <EventDetails />
+      <Itinerary />
+      <FAQ />
       <DressCode />
       <Gallery />
       <RSVPForm />

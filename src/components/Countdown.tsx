@@ -27,11 +27,11 @@ export default function Countdown({ targetDate }: { targetDate: string }) {
   }, [targetDate]);
 
   return (
-    <div className="flex gap-4 md:justify-end font-display text-primary">
+    <div className="flex flex-wrap justify-center gap-6 md:gap-12 font-display">
       {Object.entries(timeLeft).map(([label, value]) => (
-        <div key={label} className="text-center">
-          <span className="text-xl md:text-2xl font-light">{String(value).padStart(2, "0")}</span>
-          <span className="block font-caps text-[9px] tracking-widest text-gold uppercase mt-0.5">{label}</span>
+        <div key={label} className="text-center bg-primary-light/50 border border-gold/30 p-6 min-w-[120px] shadow-lg">
+          <span className="text-4xl md:text-6xl font-light text-ivory tracking-wider block mb-2">{String(value).padStart(2, "0")}</span>
+          <span className="block font-caps text-xs tracking-widest text-gold uppercase">{label}</span>
         </div>
       ))}
     </div>

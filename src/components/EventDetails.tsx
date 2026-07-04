@@ -14,8 +14,21 @@ export default function EventDetails() {
           {/* Left: Event Info */}
           <div className="border border-gold/30 p-8 md:p-12 flex flex-col justify-between space-y-12 bg-primary-light">
             <div className="space-y-6">
-              <span className="font-caps text-xs tracking-widest text-gold block">SATURDAY, AUGUST 15, 2026</span>
-              <h3 className="text-3xl font-display font-light">Holy Matrimony &amp; Reception</h3>
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                <div>
+                  <span className="font-caps text-xs tracking-widest text-gold block mb-1">SATURDAY, AUGUST 15, 2026</span>
+                  <h3 className="text-3xl font-display font-light">Holy Matrimony &amp; Reception</h3>
+                </div>
+                <a 
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Faith+%26+Francis+Wedding&dates=20260815T110000Z/20260815T180000Z&details=The+Wedding+Ceremony+and+Reception+of+Faith+%26+Francis.&location=Akamo+Hotel,+Ugbe+Akoko,+Ondo+State,+Nigeria"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-caps text-[9px] tracking-widest border border-gold/40 text-gold px-4 py-2 hover:bg-gold hover:text-primary transition-colors whitespace-nowrap"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg>
+                  ADD TO CALENDAR
+                </a>
+              </div>
               <p className="opacity-80 leading-relaxed font-light">
                 The ceremony will commence promptly at 12:00 PM. The celebration of love continues
                 immediately at the very same location with an elegant reception dinner.

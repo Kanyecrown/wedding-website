@@ -1,7 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Countdown from "./Countdown";
+import Image from "next/image";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,22 +49,24 @@ export default function Hero() {
 
             <div className="md:col-span-5 flex justify-center">
               <div className="relative w-48 h-64 border border-gold/30 p-2 bg-ivory shadow-md">
-                <div className="w-full h-full bg-primary/5 flex items-center justify-center text-center p-4">
-                  <span className="font-caps text-[9px] tracking-widest opacity-40">[ MAIN PORTRAIT PHOTO PLACEHOLDER ]</span>
+                <div className="w-full h-full bg-primary/5 relative overflow-hidden">
+                  <Image 
+                    src="/images/hero_portrait.jpg"
+                    alt="Faith and Francis Portrait"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </div>
           </div>
 
           {/* Wedding Core Details Bottom Bar */}
-          <div className="mt-12 pt-6 border-t border-gold/20 grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+          <div className="mt-12 pt-6 border-t border-gold/20 flex justify-between items-end">
             <div>
               <span className="font-caps text-[9px] tracking-widest text-gold block mb-1">THE MATRIMONY</span>
               <h1 className="text-2xl md:text-3xl font-display font-light text-primary">Faith & Francis</h1>
-              <p className="text-xs opacity-60 font-light">Akamo Hotel, Ugbe Akoko, Ondo State</p>
-            </div>
-            <div className="sm:text-right">
-              <Countdown targetDate="2026-08-15T12:00:00" />
+              <p className="text-xs opacity-60 font-light mt-1">Akamo Hotel, Ugbe Akoko, Ondo State</p>
             </div>
           </div>
         </motion.div>
