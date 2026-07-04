@@ -19,7 +19,8 @@ export default function Guestbook() {
 
   const fetchMessages = async () => {
     const res = await fetch("/api/guestbook");
-    const data = await res.getReader ? [] : await res.json();
+    if (!res.ok) return;
+    const data = await res.json();
     if (Array.isArray(data)) setMessages(data);
   };
 
