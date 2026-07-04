@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply selection:bg-gold/20;
+  }
+}
+
+.arch-frame {
+  border-radius: 500px 500px 0 0;
+}
+
+/* Custom Scrollbar for Editorial aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FBF8F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #B8892B;
+}
