@@ -42,9 +42,21 @@ export default function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7 space-y-4">
               <p className="font-body text-lg text-primary/90 leading-relaxed italic">
-                &ldquo;From the quiet corner of the choir benches, your voice was the first reminder of grace that reached out to me. You looked past my quiet hesitation, dismantled my stage fright, and stepped into my world as an anchor of unwavering encouragement. What began in shared worship has evolved into my lifelong sanctuary.&rdquo;
+                My Dearest Faith,
               </p>
-              <p className="font-script text-3xl text-gold pt-2 pl-4">— Francis</p>
+              <p className="font-body text-lg text-primary/90 leading-relaxed italic">
+                Loving you has been one of the greatest blessings of my life. Every day with you reminds me that true love is built through patience, kindness, laughter, and choosing each other again and again.
+              </p>
+              <p className="font-body text-lg text-primary/90 leading-relaxed italic">
+                Thank you for believing in me, standing beside me, and filling my life with peace and purpose. You have become my safest place, my greatest encouragement, and the person I look forward to sharing every tomorrow with.
+              </p>
+              <p className="font-body text-lg text-primary/90 leading-relaxed italic">
+                As we prepare to say &quot;I do,&quot; I promise to love you faithfully, support your dreams, protect your heart, and walk with you through every season God has prepared for us. I know our journey won&apos;t always be perfect, but I promise you&apos;ll never walk it alone.
+              </p>
+              <p className="font-body text-lg text-primary/90 leading-relaxed italic">
+                I can&apos;t wait to begin forever with you.
+              </p>
+              <p className="font-script text-3xl text-gold pt-4 pl-4">With all my love,<br/><span className="text-4xl mt-2 block">Francis ❤️</span></p>
             </div>
 
             <div className="md:col-span-5 flex justify-center">
