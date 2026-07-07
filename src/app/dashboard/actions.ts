@@ -1,29 +1,30 @@
 "use server";
-import { writeFile, unlink } from "fs/promises";
-import path from "path";
 import { revalidatePath } from "next/cache";
 import { db } from "@/lib/db";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 export async function uploadMusic(formData: FormData) {
   try {
     const file = formData.get("file") as File;
-    
-    if (!file) {
-      return { success: false, error: "No file provided" };
+    if (!file) return { success: false, error: "No file provided" };
+
+    const buffer = Buffer.from(await file.arrayBuffer());
+
+    const { data, error } = await supabase.storage
+      .from("media")
+      .upload("song.mp3", buffer, { upsert: true, contentType: file.type });
+
+    if (error) {
+      console.error("Supabase Storage Error:", error);
+      return { success: false, error: "Storage upload failed" };
     }
-
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    // Save exactly to public/song.mp3
-    const publicDir = path.join(process.cwd(), "public");
-    const filepath = path.join(publicDir, "song.mp3");
-
-    await writeFile(filepath, buffer);
     
-    // Revalidate the root layout or wherever the audio player is
     revalidatePath("/");
-
     return { success: true };
   } catch (error) {
     console.error("Failed to upload music:", error);
@@ -39,16 +40,20 @@ export async function uploadGalleryImage(formData: FormData) {
     
     if (!file) return { success: false, error: "No file provided" };
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    // Save image to public/images folder
+    const buffer = Buffer.from(await file.arrayBuffer());
     const filename = `gallery_${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, "")}`;
-    const publicDir = path.join(process.cwd(), "public", "images");
-    const filepath = path.join(publicDir, filename);
 
-    await writeFile(filepath, buffer);
-    const url = `/images/${filename}`;
+    const { data, error } = await supabase.storage
+      .from("media")
+      .upload(filename, buffer, { contentType: file.type });
+
+    if (error) {
+      console.error("Supabase Storage Error:", error);
+      return { success: false, error: "Storage upload failed" };
+    }
+
+    const { data: publicUrlData } = supabase.storage.from("media").getPublicUrl(filename);
+    const url = publicUrlData.publicUrl;
 
     // Add to database
     await db.galleryImage.create({
@@ -65,15 +70,14 @@ export async function uploadGalleryImage(formData: FormData) {
 
 export async function deleteGalleryImage(id: string, url: string) {
   try {
-    // Delete from database
     await db.galleryImage.delete({ where: { id } });
 
-    // Try to delete file
-    try {
-      const filepath = path.join(process.cwd(), "public", url);
-      await unlink(filepath);
-    } catch (fsError) {
-      console.warn("Could not delete file:", fsError);
+    // Extract filename from URL (e.g. https://.../media/gallery_123.jpg -> gallery_123.jpg)
+    const urlParts = url.split('/');
+    const filename = urlParts[urlParts.length - 1];
+
+    if (filename) {
+      await supabase.storage.from("media").remove([filename]);
     }
 
     revalidatePath("/");

@@ -7,8 +7,9 @@ export default function AudioPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Using a local file from the public directory
-    audioRef.current = new Audio("/song.mp3");
+    // Using Supabase Storage URL for the uploaded song
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    audioRef.current = new Audio(`${supabaseUrl}/storage/v1/object/public/media/song.mp3`);
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
   }, []);
