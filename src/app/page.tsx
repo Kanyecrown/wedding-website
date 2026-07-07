@@ -9,6 +9,7 @@ import Gallery from "@/components/Gallery";
 import RSVPForm from "@/components/RSVPForm";
 import Gifts from "@/components/Gifts";
 import Guestbook from "@/components/Guestbook";
+import FloatingNav from "@/components/FloatingNav";
 import { db } from "@/lib/db";
 
 export default async function Home() {
@@ -18,7 +19,8 @@ export default async function Home() {
   } catch (e) {}
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative">
+      <FloatingNav />
       <Hero />
       <CountdownSection />
       <OurStory />

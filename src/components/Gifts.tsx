@@ -17,7 +17,7 @@ export default function Gifts() {
   };
 
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 bg-primary text-ivory text-center">
+    <section id="gifts" className="py-24 px-6 md:px-12 lg:px-24 bg-primary text-ivory text-center">
       <div className="max-w-2xl mx-auto space-y-8">
         <span className="font-caps text-xs tracking-super text-gold block">CONTRIBUTIONS & LOVE GIFTS</span>
         <h2 className="text-3xl md:text-4xl font-display font-light">Registry & Support</h2>
