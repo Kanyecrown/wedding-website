@@ -9,6 +9,7 @@ export async function GET() {
     });
     return NextResponse.json(messages);
   } catch (error) {
+    console.error("GET /api/guestbook Error:", error);
     return NextResponse.json({ error: "Failed to fetch messages" }, { status: 500 });
   }
 }

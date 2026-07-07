@@ -7,8 +7,8 @@ export default function AudioPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Using a beautiful classical piece (Clair de Lune) from Wikimedia Commons
-    audioRef.current = new Audio("https://upload.wikimedia.org/wikipedia/commons/4/4f/Debussy_-_Clair_de_Lune.ogg");
+    // Using a local file from the public directory
+    audioRef.current = new Audio("/song.mp3");
     audioRef.current.loop = true;
     audioRef.current.volume = 0.3;
   }, []);
@@ -31,7 +31,7 @@ export default function AudioPlayer() {
           animate={{ opacity: 1, x: 0 }}
           className="font-caps text-[9px] tracking-widest text-gold bg-primary/80 backdrop-blur-md px-3 py-1.5 border border-gold/20 shadow-lg"
         >
-          NOW PLAYING: CLAIR DE LUNE
+          NOW PLAYING: OUR SONG
         </motion.span>
       )}
       <motion.button

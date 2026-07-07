@@ -29,7 +29,7 @@ export default function OurStory() {
             </div>
             <div className="md:col-span-5 h-64 bg-primary/5 border border-gold/20 p-2">
               <div className="w-full h-full relative overflow-hidden">
-                <Image src="/images/choir_moment.jpg" alt="Faith in the choir" fill className="object-cover object-top" />
+                <Image src="/images/choir_moment.jpg" alt="Faith in the choir" fill className="object-cover object-center" />
               </div>
             </div>
           </div>
@@ -37,7 +37,7 @@ export default function OurStory() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             <div className="md:col-span-5 h-64 bg-primary/5 border border-gold/20 p-2 order-last md:order-first">
               <div className="w-full h-full relative overflow-hidden">
-                <Image src="/images/francis_portrait.png" alt="Francis portrait" fill className="object-cover object-top" />
+                <Image src="/images/francis_portrait.png" alt="Francis portrait" fill className="object-cover object-center" />
               </div>
             </div>
             <div className="md:col-span-7 space-y-4">

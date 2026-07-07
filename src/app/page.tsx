@@ -9,8 +9,14 @@ import Gallery from "@/components/Gallery";
 import RSVPForm from "@/components/RSVPForm";
 import Gifts from "@/components/Gifts";
 import Guestbook from "@/components/Guestbook";
+import { db } from "@/lib/db";
 
-export default function Home() {
+export default async function Home() {
+  let galleryImages: any[] = [];
+  try {
+    galleryImages = await (db as any).galleryImage.findMany({ orderBy: { createdAt: "desc" } });
+  } catch (e) {}
+
   return (
     <main className="min-h-screen">
       <Hero />
@@ -20,7 +26,7 @@ export default function Home() {
       <Itinerary />
       <FAQ />
       <DressCode />
-      <Gallery />
+      <Gallery initialImages={galleryImages} />
       <RSVPForm />
       <Guestbook />
       <Gifts />

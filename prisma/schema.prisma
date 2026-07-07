@@ -25,3 +25,12 @@ model GuestbookMessage {
   message   String
   createdAt DateTime @default(now())
 }
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  url       String
+  label     String
+  ratio     String   @default("aspect-square")
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
