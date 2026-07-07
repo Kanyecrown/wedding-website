@@ -45,7 +45,7 @@ export default function Gallery({ initialImages = [] }: { initialImages?: Galler
                   src={photo.url} 
                   alt={photo.label} 
                   fill 
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105" 
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105" 
                 />
                 <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-4">
                   <span className="font-caps text-[11px] tracking-widest text-ivory">
