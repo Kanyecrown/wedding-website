@@ -35,7 +35,9 @@ export default function GuestbookModeration({ initialMessages }: { initialMessag
             <div>
               <p className="font-caps text-xs tracking-widest text-gold mb-1">{msg.name}</p>
               <p className="font-body text-sm text-primary opacity-80">{msg.message}</p>
-              <p className="text-[9px] font-caps opacity-50 mt-2">{new Date(msg.createdAt).toLocaleString()}</p>
+              <p className="text-[9px] font-caps opacity-50 mt-2" suppressHydrationWarning>
+                {new Date(msg.createdAt).toLocaleString()}
+              </p>
             </div>
             <button 
               onClick={() => handleDelete(msg.id)}
