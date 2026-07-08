@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Great_Vibes, Cormorant_Garamond, Cinzel } from "next/font/google";
 import "./globals.css";
 import AudioPlayer from "@/components/AudioPlayer";
+import FloatingGiftIcon from "@/components/FloatingGiftIcon";
 
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"], variable: "--font-great-vibes" });
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${playfair.variable} ${greatVibes.variable} ${cormorant.variable} ${cinzel.variable} bg-ivory text-primary antialiased font-body`}>
         {children}
         <AudioPlayer />
+        <FloatingGiftIcon />
       </body>
     </html>
   );
